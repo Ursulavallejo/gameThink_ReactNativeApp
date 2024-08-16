@@ -1,8 +1,18 @@
-import { StatusBar } from 'expo-status-bar'
+// import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { NavigationContainer, useNavigation } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
+// --- Onboarding screens ---
+import { SignInScreen } from './components/onboardingScreens/SignInScreen'
+import { SignUpScreen } from './components/onboardingScreens/SignUpScreen'
+
+// --- Main screens ---
+
+import { HomeScreen } from './components/mainScreens/HomeScreen'
+
+// --- Icons ---
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 // --- Navigation types ---
@@ -11,13 +21,13 @@ const Tab = createBottomTabNavigator()
 
 // --- Main screens ---
 
-const HomeScreen = () => {
-  return (
-    <View style={styles.layout}>
-      <Text style={styles.title}>Home Screen</Text>
-    </View>
-  )
-}
+// const HomeScreen = () => {
+//   return (
+//     <View style={styles.layout}>
+//       <Text style={styles.title}>Home Screen</Text>
+//     </View>
+//   )
+// }
 const FeedScreen = () => {
   return (
     <View style={styles.layout}>
@@ -44,30 +54,6 @@ const AccountScreen = () => {
 
 const MainNavigator = () => {
   return (
-    // IONSICONS
-    // <Tab.Navigator
-    //   screenOptions={({ route }) => ({
-    //     tabBarIcon: ({ focused, color, size }) => {
-    //       let iconName
-
-    //       if (route.name === 'Home') {
-    //         iconName = focused ? 'home' : 'home-outline'
-    //       } else if (route.name === 'Feed') {
-    //         iconName = focused ? 'list' : 'list-outline'
-    //       } else if (route.name === 'Catalog') {
-    //         iconName = focused ? 'pricetags' : 'pricetags-outline'
-    //       } else if (route.name === 'Account') {
-    //         iconName = focused ? 'person' : 'person-outline'
-    //       }
-
-    //       // Puedes retornar cualquier componente de ícono que desees
-    //       return <Ionicons name={iconName} size={size} color={color} />
-    //     },
-    //     tabBarActiveTintColor: 'tomato', // Color del icono cuando la pestaña está activa
-    //     tabBarInactiveTintColor: 'gray', // Color del icono cuando la pestaña está inactiva
-    //   })}
-    // >
-
     // MaterailIcons>>
 
     <Tab.Navigator
@@ -97,29 +83,6 @@ const MainNavigator = () => {
       <Tab.Screen name="Catalog" component={CatalogScreen} />
       <Tab.Screen name="Account" component={AccountScreen} />
     </Tab.Navigator>
-  )
-}
-// --- Onboarding screens ---
-
-const SignInScreen = (props) => {
-  return (
-    <View style={styles.layout}>
-      <Text style={styles.title}>Sign In Screen</Text>
-      <Button
-        title="Sign Up"
-        onPress={() => props.navigation.navigate('SignUp')}
-      />
-    </View>
-  )
-}
-
-const SignUpScreen = () => {
-  const navigation = useNavigation()
-  return (
-    <View style={styles.layout}>
-      <Text style={styles.title}>Sign Up Screen</Text>
-      <Button title="Continue" onPress={() => navigation.navigate('Main')} />
-    </View>
   )
 }
 
