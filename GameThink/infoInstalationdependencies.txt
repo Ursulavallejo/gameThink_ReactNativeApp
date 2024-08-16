@@ -34,3 +34,33 @@ npm install @react-navigation/drawer
 
 rebuild with EXPO
 $ expo start -c
+
+STEP 3:  Formik / logIn/ Sign Up
+
+npm install formik
+
+-- To handle Validation with YUP:
+
+npm install yup
+
+
+
+STEP 4:  CSS Tailwind
+
+npm install --save-dev --save-exact tailwindcss@3.3.2
+
+npx tailwind init
+
+* modify tailwind.config.js >>
+
+  content: [
+    './App.{js, jsx, ts, tsx}',
+    './components/**/*.{js, jsx , ts, tsx}',
+    './app/**/*.{js,  jsx, ts, tsx}',
+  ],
+
+* modify babel.config.js >>
+
+   plugins: ['nativewind/babel'],
+
+   -npm install nativewind

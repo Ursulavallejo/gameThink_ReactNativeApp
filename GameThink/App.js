@@ -1,6 +1,6 @@
 // import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View, Button } from 'react-native'
-import { NavigationContainer, useNavigation } from '@react-navigation/native'
+import { StyleSheet } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
@@ -11,46 +11,17 @@ import { SignUpScreen } from './components/onboardingScreens/SignUpScreen'
 // --- Main screens ---
 
 import { HomeScreen } from './components/mainScreens/HomeScreen'
+import { FeedScreen } from './components/mainScreens/FeedScreen'
+import { CatalogScreen } from './components/mainScreens/CatalogScreen'
+import { AccountScreen } from './components/mainScreens/AccountScreen'
 
 // --- Icons ---
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+// import { SafeAreaView } from 'react-native-safe-area-context'
 
 // --- Navigation types ---
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator()
-
-// --- Main screens ---
-
-// const HomeScreen = () => {
-//   return (
-//     <View style={styles.layout}>
-//       <Text style={styles.title}>Home Screen</Text>
-//     </View>
-//   )
-// }
-const FeedScreen = () => {
-  return (
-    <View style={styles.layout}>
-      <Text style={styles.title}>Feed Screen</Text>
-    </View>
-  )
-}
-const CatalogScreen = () => {
-  return (
-    <View style={styles.layout}>
-      <Text style={styles.title}>Catalog Screen</Text>
-    </View>
-  )
-}
-const AccountScreen = () => {
-  const navigation = useNavigation()
-  return (
-    <View style={styles.layout}>
-      <Text style={styles.title}>Account Screen </Text>
-      <Button title="Log Out" onPress={() => navigation.navigate('SignIn')} />
-    </View>
-  )
-}
 
 const MainNavigator = () => {
   return (
@@ -74,13 +45,16 @@ const MainNavigator = () => {
           // Retorna un ícono de MaterialIcons
           return <MaterialIcons name={iconName} size={size} color={color} />
         },
-        tabBarActiveTintColor: 'tomato',
+        tabBarActiveTintColor: 'purple',
         tabBarInactiveTintColor: 'gray',
+        tabBarStyle: {
+          backgroundColor: 'yellow',
+        },
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Feed" component={FeedScreen} />
       <Tab.Screen name="Catalog" component={CatalogScreen} />
+      <Tab.Screen name="Feed" component={FeedScreen} />
       <Tab.Screen name="Account" component={AccountScreen} />
     </Tab.Navigator>
   )
