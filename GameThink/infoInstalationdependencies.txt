@@ -1,0 +1,36 @@
+STEPS for instaltion project and Dependencies:
+
+
+Step 1:  Expo React Native Project:
+
+a. To create the React Native project with a empty template:
+
+npx create-expo-app@latest nameProject --template blank
+
+b. $ cd nameProject
+c. $ npm start
+d. create a especifuc gitignore if need it
+
+
+STEP 2 :  Navigation Dependencies:
+
+# Install the core React Navigation package
+npm install @react-navigation/native
+
+# Install required dependencies for React Navigation
+npm install react-native-screens react-native-safe-area-context
+
+Install Additional Navigation Packages>>>
+
+npm install @react-navigation/stack
+npm install @react-navigation/bottom-tabs
+npm install @react-navigation/drawer
+
+ Install React Native Gesture Handler (if needed)>>>
+
+ npm install react-native-gesture-handler
+
+ Rebuild the Project>>>>
+
+rebuild with EXPO
+$ expo start -c
