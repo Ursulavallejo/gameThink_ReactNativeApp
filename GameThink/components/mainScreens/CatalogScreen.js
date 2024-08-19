@@ -11,6 +11,7 @@ import {
   Modal,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native'
 
 import { styled } from 'nativewind'
@@ -44,8 +45,16 @@ export function CatalogScreen() {
     game.title.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
+  const getScoreColor = (score) => {
+    const percentage = (score / 100) * 100
+    if (percentage < 40) return 'text-red-500'
+    if (percentage < 85) return 'text-yellow-500'
+    return 'text-green-500'
+  }
+
   const renderItem = ({ item }) => {
     const imageUrl = `https://www.metacritic.com/a/img/${item.image.bucketType}${item.image.bucketPath}`
+    const scoreColor = getScoreColor(item.criticScoreSummary.score)
 
     return (
       <StyledPressable
@@ -67,7 +76,7 @@ export function CatalogScreen() {
             >
               Score:
               <Text
-                className="text-green-400 text-xl font-bold ml-2"
+                className={`text-xl font-bold ml-2 ${scoreColor}`}
                 style={styles.scoreValue}
               >
                 {item.criticScoreSummary.score}
@@ -83,7 +92,7 @@ export function CatalogScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-black">
+    <SafeAreaView className="flex-1 bg-black ">
       <StatusBar style="light" />
       <View className="p-4 bg-black-900">
         <TextInput
@@ -95,6 +104,7 @@ export function CatalogScreen() {
         />
       </View>
       <FlatList
+        className="m-3 p-2"
         data={filteredGames}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
@@ -106,24 +116,28 @@ export function CatalogScreen() {
           animationType="slide"
           onRequestClose={() => setModalVisible(false)}
         >
-          <View style={styles.modalContainer}>
-            <View style={styles.modalContent}>
-              <Text style={styles.modalTitle}>{selectedGame.title}</Text>
-              <Image
-                source={{
-                  uri: `https://www.metacritic.com/a/img/${selectedGame.image.bucketType}${selectedGame.image.bucketPath}`,
-                }}
-                style={styles.modalImage}
-              />
-              <Text style={styles.modalDescription}>
-                {selectedGame.description}
-              </Text>
-              <TouchableOpacity
-                style={styles.closeButton}
-                onPress={() => setModalVisible(false)}
-              >
-                <Text style={styles.closeButtonText}>Close</Text>
-              </TouchableOpacity>
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalContainer}>
+              <ScrollView contentContainerStyle={styles.modalContent}>
+                <View style={styles.modalContent}>
+                  <Text style={styles.modalTitle}>{selectedGame.title}</Text>
+                  <Image
+                    source={{
+                      uri: `https://www.metacritic.com/a/img/${selectedGame.image.bucketType}${selectedGame.image.bucketPath}`,
+                    }}
+                    style={styles.modalImage}
+                  />
+                  <Text style={styles.modalDescription}>
+                    {selectedGame.description}
+                  </Text>
+                  <TouchableOpacity
+                    style={styles.closeButton}
+                    onPress={() => setModalVisible(false)}
+                  >
+                    <Text style={styles.closeButtonText}>Close</Text>
+                  </TouchableOpacity>
+                </View>
+              </ScrollView>
             </View>
           </View>
         </Modal>
@@ -141,15 +155,23 @@ const styles = StyleSheet.create({
     height: 147,
     borderRadius: 10,
   },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    paddingTop: 50,
+  },
 
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: '100%',
   },
   modalContent: {
-    width: '80%',
+    width: '90%',
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 20,
