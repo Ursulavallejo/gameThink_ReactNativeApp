@@ -48,10 +48,7 @@ export function SignUpScreen(props) {
       style={{ backgroundColor: '#330169' }}
       className="flex-1 bg-black p-4 text-white"
     >
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor="#FCDF03" // Set the background color to yellow
-      />
+      <StatusBar barStyle="dark-content" backgroundColor="#330169" />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1"

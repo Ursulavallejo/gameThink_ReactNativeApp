@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "image": "https://images.unsplash.com/photo-1596495577886-d920f30b5b01?auto=format&fit=crop&w=648&q=80",
+      "title": "Epic RPG Adventure",
+      "description": "Just finished an incredible RPG that everyone should try! The story was captivating and the gameplay was smooth.",
+      "source": "https://unsplash.com/photos/e2nxCDu-xvA"
+    },
+    {
+      "id": "2",
+      "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=648&q=80",
+      "title": "FPS Showdown",
+      "description": "If you're into fast-paced action, this FPS game will blow your mind. The multiplayer mode is intense!",
+      "source": "https://unsplash.com/photos/lY9GPsJmDBc"
+    },
+    {
+      "id": "3",
+      "image": "https://images.unsplash.com/photo-1611512875275-dce10c4df091?auto=format&fit=crop&w=648&q=80",
+      "title": "Strategy Masterpiece",
+      "description": "This strategy game tests your brainpower with complex tactics and challenges. Highly recommend it!",
+      "source": "https://unsplash.com/photos/bobN5s2oYxs"
+    },
+    {
+      "id": "4",
+      "image": "https://images.unsplash.com/photo-1502904550040-7534597429d1?auto=format&fit=crop&w=648&q=80",
+      "title": "Racing Thrills",
+      "description": "Speed lovers, this racing game is for you. The graphics are stunning and the controls are sharp.",
+      "source": "https://unsplash.com/photos/R-ADn7tmRPA"
+    },
+    {
+      "id": "5",
+      "image": "https://images.unsplash.com/photo-1587392152112-9e931e00d117?auto=format&fit=crop&w=648&q=80",
+      "title": "Puzzle of the Century",
+      "description": "Get ready to challenge your mind with this intricate puzzle game. It's a perfect brain workout!",
+      "source": "https://unsplash.com/photos/-hfsD9fNGbM"
+    }
+  ]
+}
