@@ -8,10 +8,13 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
+  Image,
   StyleSheet,
+  StatusBar,
 } from 'react-native'
 import { Formik } from 'formik'
-import * as Yup from 'yup' // Import Yup
+import * as Yup from 'yup'
 
 export function SignUpScreen(props) {
   // Validation schema with Yup
@@ -34,41 +37,58 @@ export function SignUpScreen(props) {
   function onSubmit(values) {
     if (values.password !== values.confirmationPassword) {
       alert('Passwords do not match, please try again.')
+    } else {
+      alert(`Signed up with email: ${values.email}`)
+      // Implement your sign-up logic here
     }
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-white p-4">
+    <SafeAreaView
+      style={{ backgroundColor: '#330169' }}
+      className="flex-1 bg-black p-4 text-white"
+    >
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="#FCDF03" // Set the background color to yellow
+      />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.inner}
+        className="flex-1"
       >
         <ScrollView
-          contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
+          contentContainerStyle={{
+            flexGrow: 1,
+            justifyContent: 'center',
+            backgroundColor: '#330169',
+            alignItems: 'center',
+          }}
+          className="flex-1"
         >
+          <Image
+            source={require('../../assets/images/IconGameThink.png')}
+            style={styles.image}
+            resizeMode="contain"
+          />
           <View className="mb-6">
             <Text className="text-3xl font-bold text-purple-600 mb-4">
-              Sign Up Screen
+              Join Us
             </Text>
-            <Button
-              title="Continue"
-              onPress={() => props.navigation.navigate('Main')}
-            />
           </View>
 
           <Formik
             initialValues={{
+              name: '',
+              birthday: '',
               email: '',
               password: '',
               confirmationPassword: '',
-              name: '',
-              birthday: '',
             }}
-            validationSchema={validationSchema} // Apply validation schema
+            validationSchema={validationSchema}
             onSubmit={onSubmit}
           >
             {({ handleChange, handleSubmit, values, errors, touched }) => (
-              <View>
+              <View className="px-4 w-full max-w-md">
                 <InputWithLabel
                   label="Name"
                   placeholder="Write your name here"
@@ -84,6 +104,7 @@ export function SignUpScreen(props) {
                   onChangeText={handleChange('birthday')}
                   error={touched.birthday && errors.birthday}
                 />
+
                 <InputWithLabel
                   label="Email"
                   placeholder="Write your email here!"
@@ -115,6 +136,23 @@ export function SignUpScreen(props) {
                 <View className="mt-6">
                   <Button title="Submit" onPress={handleSubmit} />
                 </View>
+
+                <View className="mt-4">
+                  <Button
+                    title="Continue"
+                    onPress={() => props.navigation.navigate('Main')}
+                  />
+                </View>
+
+                <View className="mt-4 items-center">
+                  <Text className="text-lg text-purple-300">
+                    Already a member?
+                  </Text>
+                  <Button
+                    title="Sign In"
+                    onPress={() => props.navigation.navigate('SignIn')}
+                  />
+                </View>
               </View>
             )}
           </Formik>
@@ -125,26 +163,19 @@ export function SignUpScreen(props) {
 }
 
 function InputWithLabel(props) {
-  const {
-    label,
-    placeholder,
-    value,
-    onChangeText,
-    secureTextEntry,
-    onSubmitEditing,
-    error,
-  } = props
+  const { label, placeholder, value, onChangeText, secureTextEntry, error } =
+    props
 
   return (
     <View className="mb-4">
-      <Text className="text-lg font-medium text-gray-700 mb-2">{label}</Text>
+      <Text className="text-lg font-medium text-white mb-2">{label}</Text>
       <TextInput
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
-        onSubmitEditing={onSubmitEditing}
-        className="border border-gray-300 rounded-lg px-4 py-2 text-lg"
+        className="border border-white rounded-lg px-4 py-2 text-lg"
+        placeholderTextColor="#aaa"
       />
       {error && <Text className="text-red-500 mt-1">{error}</Text>}
     </View>
@@ -152,16 +183,9 @@ function InputWithLabel(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  inner: {
-    padding: 16,
-    flex: 1,
-  },
-  scrollView: {
-    flexGrow: 1,
-    justifyContent: 'center',
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
   },
 })

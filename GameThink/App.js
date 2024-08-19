@@ -76,7 +76,7 @@ export default function App() {
   setTimeout(SplashScreen.hideAsync, 3000)
   return (
     <SafeAreaProvider>
-      {/* <StatusBar barStyle="light-content" backgroundColor="black" /> */}
+      <StatusBar barStyle="light-content" backgroundColor="black" />
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{

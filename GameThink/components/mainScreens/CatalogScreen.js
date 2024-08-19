@@ -26,7 +26,7 @@ export function CatalogScreen() {
 
   useEffect(() => {
     fetch(
-      'https://internal-prod.apigee.fandom.net/v1/xapi/finder/metacritic/web?sortBy=-metaScore&productType=games&page=1&releaseYearMin=1958&releaseYearMax=2024&offset=0&limit=34&apiKey=1MOZgmNFxvmljaQR1X9KAij9Mo4xAY3u'
+      'https://internal-prod.apigee.fandom.net/v1/xapi/finder/metacritic/web?sortBy=-metaScore&productType=games&page=1&releaseYearMin=1958&releaseYearMax=2024&offset=0&limit=50&apiKey=1MOZgmNFxvmljaQR1X9KAij9Mo4xAY3u'
     )
       .then((response) => response.json())
       .then((result) => {
@@ -159,7 +159,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'rgba(0, 0, 0, 0.5)',
     paddingTop: 50,
   },
 
