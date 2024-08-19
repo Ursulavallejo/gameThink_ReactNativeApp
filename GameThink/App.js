@@ -1,8 +1,9 @@
-// import { StatusBar } from 'expo-status-bar'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+// import { StatusBar } from 'expo-status-bar'
+import * as SplashScreen from 'expo-splash-screen'
 
 // --- Onboarding screens ---
 import { SignInScreen } from './components/onboardingScreens/SignInScreen'
@@ -17,6 +18,7 @@ import { AccountScreen } from './components/mainScreens/AccountScreen'
 
 // --- Icons ---
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 // import { SafeAreaView } from 'react-native-safe-area-context'
 
 // --- Navigation types ---
@@ -48,7 +50,14 @@ const MainNavigator = () => {
         tabBarActiveTintColor: 'purple',
         tabBarInactiveTintColor: 'gray',
         tabBarStyle: {
-          backgroundColor: 'yellow',
+          backgroundColor: '#FCDF03',
+        },
+        headerStyle: {
+          backgroundColor: '#330169',
+        },
+        headerTintColor: 'white',
+        headerTitleStyle: {
+          fontWeight: 'bold',
         },
       })}
     >
@@ -63,14 +72,23 @@ const MainNavigator = () => {
 // --- App ---
 
 export default function App() {
+  SplashScreen.preventAutoHideAsync()
+  setTimeout(SplashScreen.hideAsync, 3000)
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="SignIn" component={SignInScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-        <Stack.Screen name="Main" component={MainNavigator} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      {/* <StatusBar barStyle="light-content" backgroundColor="black" /> */}
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="SignIn" component={SignInScreen} />
+          <Stack.Screen name="SignUp" component={SignUpScreen} />
+          <Stack.Screen name="Main" component={MainNavigator} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   )
 }
 

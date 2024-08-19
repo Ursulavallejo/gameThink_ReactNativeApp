@@ -8,7 +8,8 @@ a. To create the React Native project with a empty template:
 npx create-expo-app@latest nameProject --template blank
 
 b. $ cd nameProject
-c. $ npm start
+c. $ npm start    // $ npx expo start
+
 d. create a especifuc gitignore if need it
 
 
@@ -64,3 +65,7 @@ npx tailwind init
    plugins: ['nativewind/babel'],
 
    -npm install nativewind
+
+   STEP 5:  Splash
+
+npm install expo-splash-screen
