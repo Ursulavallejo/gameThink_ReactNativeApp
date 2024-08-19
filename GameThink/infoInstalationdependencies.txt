@@ -69,3 +69,8 @@ npx tailwind init
    STEP 5:  Splash
 
 npm install expo-splash-screen
+
+
+   STEP 6:  Expo-router
+
+   npm install expo-router

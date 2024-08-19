@@ -44,7 +44,7 @@ const MainNavigator = () => {
             iconName = focused ? 'account-circle' : 'account-circle'
           }
 
-          // Retorna un ícono de MaterialIcons
+          // Returns Icon >> MaterialIcons
           return <MaterialIcons name={iconName} size={size} color={color} />
         },
         tabBarActiveTintColor: 'purple',
