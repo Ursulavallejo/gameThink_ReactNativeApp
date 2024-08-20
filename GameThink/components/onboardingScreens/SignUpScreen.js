@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   View,
   Text,
@@ -39,7 +38,7 @@ export function SignUpScreen(props) {
       alert('Passwords do not match, please try again.')
     } else {
       alert(`Signed up with email: ${values.email}`)
-      // Implement your sign-up logic here
+      // sign-up logic here
     }
   }
 
@@ -48,7 +47,7 @@ export function SignUpScreen(props) {
       style={{ backgroundColor: '#330169' }}
       className="flex-1 bg-black p-4 text-white"
     >
-      <StatusBar barStyle="dark-content" backgroundColor="#330169" />
+      <StatusBar barStyle="light-content" backgroundColor="#330169" />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1"

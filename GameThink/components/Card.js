@@ -13,14 +13,15 @@ export const Card = (props) => (
 
 const cardStyles = StyleSheet.create({
   card: {
-    width: 88,
-    height: 112,
+    width: 120,
+    height: 135,
     padding: 12,
     marginRight: 16,
-    borderWidth: 2,
+    borderWidth: 4,
     backgroundColor: '#FFFFFF',
-    borderColor: '#E7E3EB',
+    borderColor: '#9333EA',
     borderRadius: 12,
+    alignItems: 'center',
   },
   title: {
     width: '100%',

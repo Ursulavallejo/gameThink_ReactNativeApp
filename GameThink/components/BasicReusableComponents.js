@@ -24,8 +24,8 @@ export const Title = (props) => (
 
 const styles = StyleSheet.create({
   imageProfile: {
-    height: 64,
-    width: 64,
+    height: 74,
+    width: 74,
     borderRadius: '50%',
   },
   heading: {
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 12,
     paddingHorizontal: 24,
-    color: '#080608',
+    color: 'white',
   },
   title: {
     fontFamily: 'Helvetica',

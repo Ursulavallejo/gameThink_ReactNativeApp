@@ -15,7 +15,7 @@ import {
 } from 'react-native'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
-import { styled } from 'nativewind'
+// import { styled } from 'nativewind'
 
 export function SignInScreen(props) {
   // Validation schema with Yup
@@ -32,7 +32,7 @@ export function SignInScreen(props) {
   })
 
   function onSubmit(values) {
-    // Implement your sign-in logic here
+    // sign-in logic here
     alert(`Signed in with email: ${values.email}`)
   }
 
