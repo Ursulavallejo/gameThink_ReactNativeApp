@@ -3,7 +3,6 @@ import {
   View,
   StatusBar,
   SafeAreaView,
-  ScrollView,
   FlatList,
   Pressable,
   Modal,
@@ -12,12 +11,13 @@ import {
   KeyboardAvoidingView,
   Platform,
   Image,
+  ScrollView,
 } from 'react-native'
 
 import { useEffect, useState } from 'react'
 import { globalStyles } from '../../styles/globalStyles'
 import { Card } from '../Card'
-import { Heading, Title } from '../BasicReusableComponents'
+import { Heading, Title, Post } from '../BasicReusableComponents'
 
 import { styled } from 'nativewind'
 
@@ -25,6 +25,7 @@ const StyledPressable = styled(Pressable)
 
 export function FeedScreen() {
   const [users, setUsers] = useState([])
+  const [posts, setPosts] = useState([])
   const [selectedUser, setSelectedUser] = useState(null)
   const [modalVisible, setModalVisible] = useState(false)
   const [message, setMessage] = useState('')
@@ -40,6 +41,16 @@ export function FeedScreen() {
       })
   }, [])
 
+  useEffect(() => {
+    fetch(
+      'https://raw.githubusercontent.com/Ursulavallejo/gameThink_ReactNativeApp/main/GameThink/data/posts.json'
+    )
+      .then((response) => response.json())
+      .then((result) => {
+        setPosts(result.posts)
+      })
+  }, [])
+
   const handleSendMessage = () => {
     // Handle sending the message to the user (this could be an API call, etc.)
     console.log(`Message to ${selectedUser.name}: ${message}`)
@@ -52,13 +63,13 @@ export function FeedScreen() {
     <View style={[globalStyles.layout, { backgroundColor: '#330169' }]}>
       <SafeAreaView style={globalStyles.layout}>
         <StatusBar barStyle="light-content" backgroundColor="#330169" />
+
+        {/* ERROR Virtualized List should never be nested */}
         <ScrollView>
           <Heading>My Friends:</Heading>
-          {/* <Text style={globalStyles.title}>Feed!</Text> */}
 
           {/* print all the Api */}
           {/* <Text>{JSON.stringify(users)}</Text> */}
-          {/* <Card></Card> */}
 
           <FlatList
             data={users}
@@ -78,73 +89,90 @@ export function FeedScreen() {
             keyExtractor={(item) => item.id}
             showsHorizontalScrollIndicator={false}
           />
-        </ScrollView>
-      </SafeAreaView>
-      {selectedUser && (
-        <Modal
-          visible={modalVisible}
-          transparent={true}
-          animationType="slide"
-          onRequestClose={() => setModalVisible(false)}
-        >
-          <View style={styles.modalOverlay}>
-            <View style={styles.modalContainer}>
-              {/* //THIS is not working  keyboard overlay*/}
-              <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={styles.modalContainer}
-              >
-                <ScrollView contentContainerStyle={styles.modalContent}>
-                  <Image
-                    source={{ uri: selectedUser.imageProfile }}
-                    style={styles.modalImage}
-                  />
-                  <Text style={styles.modalTitle}>{selectedUser.name}</Text>
+          <View>
+            <Heading>Posts</Heading>
 
-                  <Title>About me:</Title>
-                  <Text style={styles.modalText}>{selectedUser.on_me}</Text>
-                  <Title>Favorite Games: </Title>
-                  <Text style={styles.modalText}>
-                    {selectedUser.favorite_games.join(', ')}
-                  </Text>
-
-                  {isContactMode && (
-                    <TextInput
-                      style={styles.input}
-                      placeholder="Write a message..."
-                      placeholderTextColor="#808080"
-                      value={message}
-                      onChangeText={setMessage}
-                    />
-                  )}
-
-                  <TouchableOpacity
-                    style={styles.sendButton}
-                    onPress={() => {
-                      if (isContactMode) {
-                        handleSendMessage()
-                      } else {
-                        setIsContactMode(true)
-                      }
-                    }}
-                  >
-                    <Text style={styles.sendButtonText}>
-                      {isContactMode ? 'Send' : 'Contact'}
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={styles.closeButton}
-                    onPress={() => setModalVisible(false)}
-                  >
-                    <Text style={styles.closeButtonText}>Close</Text>
-                  </TouchableOpacity>
-                </ScrollView>
-              </KeyboardAvoidingView>
-            </View>
+            <FlatList
+              data={posts}
+              renderItem={({ item }) => (
+                <Post
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                  author={item.author}
+                />
+              )}
+              keyExtractor={(post) => post.id}
+            />
           </View>
-        </Modal>
-      )}
+        </ScrollView>
+
+        {selectedUser && (
+          <Modal
+            visible={modalVisible}
+            transparent={true}
+            animationType="slide"
+            onRequestClose={() => setModalVisible(false)}
+          >
+            <View style={styles.modalOverlay}>
+              <View style={styles.modalContainer}>
+                {/* //THIS is not working  keyboard overlay*/}
+                <KeyboardAvoidingView
+                  behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                  style={styles.modalContainer}
+                >
+                  <ScrollView contentContainerStyle={styles.modalContent}>
+                    <Image
+                      source={{ uri: selectedUser.imageProfile }}
+                      style={styles.modalImage}
+                    />
+                    <Text style={styles.modalTitle}>{selectedUser.name}</Text>
+
+                    <Title>About me:</Title>
+                    <Text style={styles.modalText}>{selectedUser.on_me}</Text>
+                    <Title>Favorite Games: </Title>
+                    <Text style={styles.modalText}>
+                      {selectedUser.favorite_games.join(', ')}
+                    </Text>
+
+                    {isContactMode && (
+                      <TextInput
+                        style={styles.input}
+                        placeholder="Write a message..."
+                        placeholderTextColor="#808080"
+                        value={message}
+                        onChangeText={setMessage}
+                      />
+                    )}
+
+                    <TouchableOpacity
+                      style={styles.sendButton}
+                      onPress={() => {
+                        if (isContactMode) {
+                          handleSendMessage()
+                        } else {
+                          setIsContactMode(true)
+                        }
+                      }}
+                    >
+                      <Text style={styles.sendButtonText}>
+                        {isContactMode ? 'Send' : 'Contact'}
+                      </Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      style={styles.closeButton}
+                      onPress={() => setModalVisible(false)}
+                    >
+                      <Text style={styles.closeButtonText}>Close</Text>
+                    </TouchableOpacity>
+                  </ScrollView>
+                </KeyboardAvoidingView>
+              </View>
+            </View>
+          </Modal>
+        )}
+      </SafeAreaView>
     </View>
   )
 }

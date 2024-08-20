@@ -2,38 +2,38 @@
   "posts": [
     {
       "id": "1",
-      "image": "https://images.unsplash.com/photo-1596495577886-d920f30b5b01?auto=format&fit=crop&w=648&q=80",
+      "image": "https://plus.unsplash.com/premium_photo-1664475487117-19359b9f4ac6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80",
+      "author": "Jane Smith",
       "title": "Epic RPG Adventure",
-      "description": "Just finished an incredible RPG that everyone should try! The story was captivating and the gameplay was smooth.",
-      "source": "https://unsplash.com/photos/e2nxCDu-xvA"
+      "description": "Just finished an incredible Role-Playing Game that everyone should try! The story was captivating and the gameplay was smooth."
     },
     {
       "id": "2",
-      "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=648&q=80",
+      "image": "https://images.unsplash.com/photo-1646950887163-25b5bff58eed?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80",
+      "author": "John Doe",
       "title": "FPS Showdown",
-      "description": "If you're into fast-paced action, this FPS game will blow your mind. The multiplayer mode is intense!",
-      "source": "https://unsplash.com/photos/lY9GPsJmDBc"
+      "description": "If you're into fast-paced action, this First-Person Shooter game will blow your mind. The multiplayer mode is intense!"
     },
     {
       "id": "3",
-      "image": "https://images.unsplash.com/photo-1611512875275-dce10c4df091?auto=format&fit=crop&w=648&q=80",
+      "image": "https://images.unsplash.com/photo-1582921017967-79d1cb6702ee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80",
+      "author": "Sarah Wilson",
       "title": "Strategy Masterpiece",
-      "description": "This strategy game tests your brainpower with complex tactics and challenges. Highly recommend it!",
-      "source": "https://unsplash.com/photos/bobN5s2oYxs"
+      "description": "This strategy game tests your brainpower with complex tactics and challenges. Highly recommend it!"
     },
     {
       "id": "4",
-      "image": "https://images.unsplash.com/photo-1502904550040-7534597429d1?auto=format&fit=crop&w=648&q=80",
+      "image": "https://plus.unsplash.com/premium_photo-1661629057515-b871a15e82d1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80",
+      "author": "Chris Lee",
       "title": "Racing Thrills",
-      "description": "Speed lovers, this racing game is for you. The graphics are stunning and the controls are sharp.",
-      "source": "https://unsplash.com/photos/R-ADn7tmRPA"
+      "description": "Speed lovers, this racing game is for you. The graphics are stunning and the controls are sharp."
     },
     {
       "id": "5",
-      "image": "https://images.unsplash.com/photo-1587392152112-9e931e00d117?auto=format&fit=crop&w=648&q=80",
+      "image": "https://images.unsplash.com/photo-1588591795084-1770cb3be374?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80",
+      "author": "Emily Davis",
       "title": "Puzzle of the Century",
-      "description": "Get ready to challenge your mind with this intricate puzzle game. It's a perfect brain workout!",
-      "source": "https://unsplash.com/photos/-hfsD9fNGbM"
+      "description": "Get ready to challenge your mind with this intricate puzzle game. It's a perfect brain workout!"
     }
   ]
 }

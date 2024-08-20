@@ -4,11 +4,11 @@ import {
   // ScrollView,
   StyleSheet,
   Text,
-  // View,
+  View,
   // FlatList,
 } from 'react-native'
 
-//FEED Screen >>>
+//FEED Screen Users>>>
 
 export const ImageProfile = (props) => (
   <Image style={styles.imageProfile} source={{ uri: props.url }} />
@@ -42,6 +42,46 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textTransform: 'uppercase',
     fontWeight: '600',
-    color: '#280D5F',
+    color: '#red',
+  },
+})
+
+//FEED Screen POSTS>>>
+
+export const Post = (props) => (
+  <View style={PostStyles.layout}>
+    <Image source={{ uri: props.image }} style={PostStyles.image} />
+    <View style={PostStyles.content}>
+      <Text style={PostStyles.title}>{props.title}</Text>
+      <Text style={PostStyles.description} numberOfLines={2}>
+        {props.description}
+      </Text>
+      <Title>{props.author}</Title>
+    </View>
+  </View>
+)
+
+const PostStyles = StyleSheet.create({
+  layout: {
+    marginHorizontal: 24,
+    flexDirection: 'row',
+    marginVertical: 8,
+    backgroundColor: '#0000',
+  },
+  image: {
+    borderRadius: 12,
+    flex: 1,
+  },
+  content: {
+    flex: 2,
+    padding: 12,
+  },
+  title: {
+    color: 'pink',
+  },
+  description: {
+    fontSize: 12,
+    marginTop: 4,
+    color: 'white',
   },
 })

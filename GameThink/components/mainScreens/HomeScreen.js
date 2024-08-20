@@ -1,9 +1,12 @@
 import { Text, View, Image, StyleSheet } from 'react-native'
+import { Heading, Title } from '../BasicReusableComponents'
 import { globalStyles } from '../../styles/globalStyles'
 
 export function HomeScreen() {
   return (
     <View style={[globalStyles.layout, styles.container]}>
+      <Heading>slides animation?</Heading>
+
       <Image
         source={require('../../assets/images/HomeAppGame.jpg')}
         style={styles.image}
