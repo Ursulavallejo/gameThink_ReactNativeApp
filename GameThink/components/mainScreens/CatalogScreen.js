@@ -58,7 +58,7 @@ export function CatalogScreen() {
 
     return (
       <StyledPressable
-        className="active:opacity-70 border border-gray-700 active:border-gray-500 mb-2 bg-gray-800 rounded-xl p-4 flex-row"
+        className="active:opacity-70 border border-purple-700 active:border-purple-500 mb-3 bg-purple-900 rounded-xl p-4 flex-row"
         onPress={() => {
           setSelectedGame(item)
           setModalVisible(true)
@@ -92,19 +92,19 @@ export function CatalogScreen() {
   }
 
   return (
-    <SafeAreaView className="flex-1 bg-black ">
+    <SafeAreaView className="flex-1" style={{ backgroundColor: '#330169' }}>
       <StatusBar style="light" />
-      <View className="p-4 bg-black-900">
+      <View className="p-4 ">
         <TextInput
-          className="h-12 border border-gray-600 rounded-lg px-4 text-white"
+          className="h-12 border border-purple-600 rounded-lg px-4 text-white"
           placeholder="Search..."
-          placeholderTextColor="#888"
+          placeholderTextColor="#aaa"
           value={searchTerm}
           onChangeText={handleSearch}
         />
       </View>
       <FlatList
-        className="m-3 p-2"
+        className="m-3 p-2 "
         data={filteredGames}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
