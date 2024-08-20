@@ -53,9 +53,11 @@ export const Post = (props) => (
     <Image source={{ uri: props.image }} style={PostStyles.image} />
     <View style={PostStyles.content}>
       <Text style={PostStyles.title}>{props.title}</Text>
+
       <Text style={PostStyles.description} numberOfLines={2}>
         {props.description}
       </Text>
+      <Text>Author:</Text>
       <Title>{props.author}</Title>
     </View>
   </View>
