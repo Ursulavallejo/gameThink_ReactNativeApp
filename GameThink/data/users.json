@@ -6,7 +6,9 @@
       "dateBirth": "1990-01-15",
       "email": "jon@someemail.com",
       "password": "password123",
-      "avatar": "https://plus.unsplash.com/premium_photo-1682096259050-361e2989706d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80"
+      "imageProfile": "https://plus.unsplash.com/premium_photo-1682096259050-361e2989706d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80",
+      "on_me": "Just like Master Chief, I’m always ready for the next mission. Whether it's tackling the latest RPG or leading the squad in a battle royale, I'm your go-to gamer for strategy and fun!",
+      "favorite_games": ["Halo", "Mass Effect"]
     },
     {
       "id": "2",
@@ -14,7 +16,9 @@
       "dateBirth": "1988-03-22",
       "email": "jane@someemail.com",
       "password": "password456",
-      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=648&q=80"
+      "imageProfile": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=648&q=80",
+      "on_me": "As fearless as Lara Croft and just as curious! I love exploring new worlds, solving puzzles, and uncovering secrets—both in games and in life. Ready to embark on the next adventure!",
+      "favorite_games": ["Tomb Raider", "Uncharted"]
     },
     {
       "id": "3",
@@ -22,7 +26,9 @@
       "dateBirth": "1985-07-30",
       "email": "mike@someemail.com",
       "password": "password789",
-      "avatar": "https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80"
+      "imageProfile": "https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80",
+      "on_me": "A bit like Geralt of Rivia—calm, collected, and always up for a challenge. I enjoy open-world games where I can explore at my own pace. Join me, and let's conquer the next quest together.",
+      "favorite_games": ["The Witcher 3", "Skyrim"]
     },
     {
       "id": "4",
@@ -30,7 +36,9 @@
       "dateBirth": "1992-11-14",
       "email": "emily@someemail.com",
       "password": "password101",
-      "avatar": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=648&q=80"
+      "imageProfile": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=648&q=80",
+      "on_me": "Channeling my inner Zelda—wise, adventurous, and always ready to assist. Whether it's co-op or competitive play, I'm here to make gaming more fun and memorable. Let’s create some epic stories!",
+      "favorite_games": ["Zelda: Breath of the Wild", "Animal Crossing"]
     },
     {
       "id": "5",
@@ -38,7 +46,9 @@
       "dateBirth": "1989-05-06",
       "email": "chris@someemail.com",
       "password": "password102",
-      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=648&q=80"
+      "imageProfile": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=648&q=80",
+      "on_me": "Fast like Sonic, with a love for speed and quick thinking. Whether it's a racing game or a fast-paced shooter, I'm all about adrenaline and action. Ready to keep up?",
+      "favorite_games": ["Sonic the Hedgehog", "Need for Speed"]
     },
     {
       "id": "6",
@@ -46,7 +56,9 @@
       "dateBirth": "1993-08-21",
       "email": "sarah@someemail.com",
       "password": "password103",
-      "avatar": "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=648&q=80"
+      "imageProfile": "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=648&q=80",
+      "on_me": "Strategic like Cortana, I enjoy games that make me think. Whether it's a complex RPG or a strategy game, I love diving deep into the lore and mastering the mechanics. Let’s outsmart the competition together!",
+      "favorite_games": ["StarCraft", "Civilization VI"]
     },
     {
       "id": "7",
@@ -54,7 +66,9 @@
       "dateBirth": "1987-12-02",
       "email": "david@someemail.com",
       "password": "password104",
-      "avatar": "https://images.unsplash.com/photo-1503237279237-8d924aaa7183?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80"
+      "imageProfile": "https://images.unsplash.com/photo-1503237279237-8d924aaa7183?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80",
+      "on_me": "As resourceful as Nathan Drake—I'm always ready to solve problems and find the treasure in every situation. Love games with great stories and challenges? Let’s team up and discover something amazing!",
+      "favorite_games": ["Uncharted", "The Last of Us"]
     },
     {
       "id": "8",
@@ -62,7 +76,9 @@
       "dateBirth": "1991-06-10",
       "email": "megan@someemail.com",
       "password": "password105",
-      "avatar": "https://images.unsplash.com/photo-1520719627573-5e2c1a6610f0?auto=format&fit=crop&w=648&q=80"
+      "imageProfile": "https://images.unsplash.com/photo-1520719627573-5e2c1a6610f0?auto=format&fit=crop&w=648&q=80",
+      "on_me": "Bright and bold like Princess Peach—I'm all about bringing positivity to the game. Whether we’re tackling a tough level or just hanging out, I’m here to make sure everyone has a good time!",
+      "favorite_games": ["Mario Kart", "Super Mario Odyssey"]
     }
   ]
 }
