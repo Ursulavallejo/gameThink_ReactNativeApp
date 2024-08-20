@@ -3,48 +3,64 @@
     {
       "id": "1",
       "name": "John Doe",
+      "dateBirth": "1990-01-15",
+      "email": "jon@someemail.com",
       "password": "password123",
       "avatar": "https://plus.unsplash.com/premium_photo-1682096259050-361e2989706d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80"
     },
     {
       "id": "2",
       "name": "Jane Smith",
+      "dateBirth": "1988-03-22",
+      "email": "jane@someemail.com",
       "password": "password456",
       "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=648&q=80"
     },
     {
       "id": "3",
       "name": "Mike Johnson",
+      "dateBirth": "1985-07-30",
+      "email": "mike@someemail.com",
       "password": "password789",
       "avatar": "https://images.unsplash.com/photo-1480455624313-e29b44bbfde1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80"
     },
     {
       "id": "4",
       "name": "Emily Davis",
+      "dateBirth": "1992-11-14",
+      "email": "emily@someemail.com",
       "password": "password101",
       "avatar": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=648&q=80"
     },
     {
       "id": "5",
       "name": "Chris Lee",
+      "dateBirth": "1989-05-06",
+      "email": "chris@someemail.com",
       "password": "password102",
       "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=648&q=80"
     },
     {
       "id": "6",
       "name": "Sarah Wilson",
+      "dateBirth": "1993-08-21",
+      "email": "sarah@someemail.com",
       "password": "password103",
       "avatar": "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=648&q=80"
     },
     {
       "id": "7",
       "name": "David Brown",
+      "dateBirth": "1987-12-02",
+      "email": "david@someemail.com",
       "password": "password104",
       "avatar": "https://images.unsplash.com/photo-1503237279237-8d924aaa7183?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=648&q=80"
     },
     {
       "id": "8",
       "name": "Megan Taylor",
+      "dateBirth": "1991-06-10",
+      "email": "megan@someemail.com",
       "password": "password105",
       "avatar": "https://images.unsplash.com/photo-1520719627573-5e2c1a6610f0?auto=format&fit=crop&w=648&q=80"
     }
