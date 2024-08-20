@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textTransform: 'uppercase',
     fontWeight: '600',
-    color: '#red',
+
+    color: 'red',
   },
 })
 
@@ -54,11 +55,17 @@ export const Post = (props) => (
     <View style={PostStyles.content}>
       <Text style={PostStyles.title}>{props.title}</Text>
 
-      <Text style={PostStyles.description} numberOfLines={2}>
+      <Text
+        style={PostStyles.description}
+        // If i want to see only a few lines
+        // numberOfLines={3}
+      >
         {props.description}
       </Text>
-      <Text>Author:</Text>
-      <Title>{props.author}</Title>
+      <Text style={{ color: 'yellow' }}>Author:</Text>
+
+      {/* WHY Cant pass styles if is a component */}
+      <Title style={{ color: 'red' }}>{props.author}</Title>
     </View>
   </View>
 )
@@ -66,20 +73,28 @@ export const Post = (props) => (
 const PostStyles = StyleSheet.create({
   layout: {
     marginHorizontal: 24,
+
     flexDirection: 'row',
     marginVertical: 8,
-    backgroundColor: '#0000',
+    borderWidth: 1,
+    backgroundColor: 'transparent',
+    borderColor: '#9333EA',
+    borderRadius: 12,
+    padding: 3,
+
+    width: '90%',
   },
   image: {
     borderRadius: 12,
     flex: 1,
   },
   content: {
-    flex: 2,
+    flex: 1,
     padding: 12,
   },
   title: {
     color: 'pink',
+    fontWeight: '600',
   },
   description: {
     fontSize: 12,

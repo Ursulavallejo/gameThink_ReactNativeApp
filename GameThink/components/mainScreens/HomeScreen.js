@@ -25,6 +25,8 @@ export function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#330169',
+    alignItems: 'center',
+    // justifyContent: 'center',
   },
 
   textContainer: {

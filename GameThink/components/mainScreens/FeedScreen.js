@@ -60,120 +60,120 @@ export function FeedScreen() {
   }
 
   return (
-    <View style={[globalStyles.layout, { backgroundColor: '#330169' }]}>
-      <SafeAreaView style={globalStyles.layout}>
-        <StatusBar barStyle="light-content" backgroundColor="#330169" />
+    <SafeAreaView style={[globalStyles.layout, { backgroundColor: '#330169' }]}>
+      <StatusBar barStyle="light-content" backgroundColor="#330169" />
+      <View>
+        <Heading>My Friends:</Heading>
 
-        {/* ERROR Virtualized List should never be nested */}
-        <ScrollView>
-          <Heading>My Friends:</Heading>
+        {/* print all the Api */}
+        {/* <Text>{JSON.stringify(users)}</Text> */}
 
-          {/* print all the Api */}
-          {/* <Text>{JSON.stringify(users)}</Text> */}
-
-          <FlatList
-            data={users}
-            horizontal
-            contentContainerStyle={{ paddingHorizontal: 24 }}
-            renderItem={({ item }) => (
-              <StyledPressable
-                className="active:opacity-70 "
-                onPress={() => {
-                  setSelectedUser(item)
-                  setModalVisible(true)
-                }}
-              >
-                <Card name={item.name} imageProfile={item.imageProfile} />
-              </StyledPressable>
-            )}
-            keyExtractor={(item) => item.id}
-            showsHorizontalScrollIndicator={false}
-          />
-          <View>
-            <Heading>Posts</Heading>
-
-            <FlatList
-              data={posts}
-              renderItem={({ item }) => (
-                <Post
-                  image={item.image}
-                  title={item.title}
-                  description={item.description}
-                  author={item.author}
-                />
-              )}
-              keyExtractor={(post) => post.id}
+        <FlatList
+          data={users}
+          horizontal
+          contentContainerStyle={{ paddingHorizontal: 24 }}
+          renderItem={({ item }) => (
+            <StyledPressable
+              className="active:opacity-70 "
+              onPress={() => {
+                setSelectedUser(item)
+                setModalVisible(true)
+              }}
+            >
+              <Card name={item.name} imageProfile={item.imageProfile} />
+            </StyledPressable>
+          )}
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+      <View>
+        <Heading>Posts</Heading>
+        {/* I cant use Scroll View but cant see all posts ... How to solve it?i se paddin g but is excesive */}
+        <FlatList
+          contentContainerStyle={{ paddingBottom: '60%' }}
+          data={posts}
+          vertical
+          renderItem={({ item }) => (
+            <Post
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              author={item.author}
             />
-          </View>
-        </ScrollView>
+          )}
+          keyExtractor={(post) => post.id}
+        />
+      </View>
 
-        {selectedUser && (
-          <Modal
-            visible={modalVisible}
-            transparent={true}
-            animationType="slide"
-            onRequestClose={() => setModalVisible(false)}
-          >
-            <View style={styles.modalOverlay}>
-              <View style={styles.modalContainer}>
-                {/* //THIS is not working  keyboard overlay*/}
-                <KeyboardAvoidingView
-                  behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                  style={styles.modalContainer}
-                >
-                  <ScrollView contentContainerStyle={styles.modalContent}>
-                    <Image
-                      source={{ uri: selectedUser.imageProfile }}
-                      style={styles.modalImage}
+      {/* </ScrollView> */}
+
+      {selectedUser && (
+        <Modal
+          visible={modalVisible}
+          transparent={true}
+          animationType="slide"
+          onRequestClose={() => setModalVisible(false)}
+        >
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalContainer}>
+              {/* //THIS is not working  keyboard overlay*/}
+              <KeyboardAvoidingView
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                style={styles.modalContainer}
+              >
+                <ScrollView contentContainerStyle={styles.modalContent}>
+                  <Image
+                    source={{ uri: selectedUser.imageProfile }}
+                    style={styles.modalImage}
+                  />
+                  <Text style={styles.modalTitle}>{selectedUser.name}</Text>
+
+                  <Title>About me:</Title>
+                  <Text style={styles.modalText}>{selectedUser.on_me}</Text>
+                  <Title>Favorite Games: </Title>
+                  <Text style={styles.modalText}>
+                    {selectedUser.favorite_games.join(', ')}
+                  </Text>
+
+                  {isContactMode && (
+                    <TextInput
+                      style={styles.input}
+                      placeholder="Write a message..."
+                      placeholderTextColor="#808080"
+                      value={message}
+                      onChangeText={setMessage}
                     />
-                    <Text style={styles.modalTitle}>{selectedUser.name}</Text>
+                  )}
 
-                    <Title>About me:</Title>
-                    <Text style={styles.modalText}>{selectedUser.on_me}</Text>
-                    <Title>Favorite Games: </Title>
-                    <Text style={styles.modalText}>
-                      {selectedUser.favorite_games.join(', ')}
+                  <TouchableOpacity
+                    style={styles.sendButton}
+                    onPress={() => {
+                      if (isContactMode) {
+                        handleSendMessage()
+                      } else {
+                        setIsContactMode(true)
+                      }
+                    }}
+                  >
+                    <Text style={styles.sendButtonText}>
+                      {isContactMode ? 'Send' : 'Contact'}
                     </Text>
+                  </TouchableOpacity>
 
-                    {isContactMode && (
-                      <TextInput
-                        style={styles.input}
-                        placeholder="Write a message..."
-                        placeholderTextColor="#808080"
-                        value={message}
-                        onChangeText={setMessage}
-                      />
-                    )}
-
-                    <TouchableOpacity
-                      style={styles.sendButton}
-                      onPress={() => {
-                        if (isContactMode) {
-                          handleSendMessage()
-                        } else {
-                          setIsContactMode(true)
-                        }
-                      }}
-                    >
-                      <Text style={styles.sendButtonText}>
-                        {isContactMode ? 'Send' : 'Contact'}
-                      </Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                      style={styles.closeButton}
-                      onPress={() => setModalVisible(false)}
-                    >
-                      <Text style={styles.closeButtonText}>Close</Text>
-                    </TouchableOpacity>
-                  </ScrollView>
-                </KeyboardAvoidingView>
-              </View>
+                  <TouchableOpacity
+                    style={styles.closeButton}
+                    onPress={() => setModalVisible(false)}
+                  >
+                    <Text style={styles.closeButtonText}>Close</Text>
+                  </TouchableOpacity>
+                </ScrollView>
+              </KeyboardAvoidingView>
             </View>
-          </Modal>
-        )}
-      </SafeAreaView>
-    </View>
+          </View>
+        </Modal>
+      )}
+    </SafeAreaView>
   )
 }
 
