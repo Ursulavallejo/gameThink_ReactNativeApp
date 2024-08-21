@@ -19,7 +19,7 @@ export const Heading = (props) => (
 )
 
 export const Title = (props) => (
-  <Text style={styles.title}>{props.children}</Text>
+  <Text style={[styles.title, props.style]}>{props.children}</Text>
 )
 
 const styles = StyleSheet.create({
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     fontWeight: '600',
 
-    color: 'red',
+    // color: 'red',
   },
 })
 

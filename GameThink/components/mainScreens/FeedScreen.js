@@ -87,11 +87,11 @@ export function FeedScreen() {
           showsHorizontalScrollIndicator={false}
         />
       </View>
-      <View>
+      <View style={{ flex: 1 }}>
         <Heading>Posts</Heading>
         {/* I cant use Scroll View but cant see all posts ... How to solve it?i se paddin g but is excesive */}
         <FlatList
-          contentContainerStyle={{ paddingBottom: '60%' }}
+          // contentContainerStyle={{ paddingBottom: '60%' }}
           data={posts}
           vertical
           renderItem={({ item }) => (
