@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import PropTypes from 'prop-types'
 
 import {
   View,
@@ -9,7 +10,6 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   Platform,
-  // TouchableOpacity,
   Image,
   StyleSheet,
   StatusBar,
@@ -173,16 +173,13 @@ export function SignUpScreen(props) {
   )
 }
 
+SignUpScreen.propTypes = {
+  navigation: PropTypes.object.isRequired,
+}
+
 function InputWithLabel(props) {
-  const {
-    label,
-    placeholder,
-    value,
-    onChangeText,
-    secureTextEntry,
-    error,
-    style,
-  } = props
+  const { label, placeholder, value, onChangeText, secureTextEntry, error } =
+    props
 
   return (
     <View className="mb-4">
@@ -198,6 +195,16 @@ function InputWithLabel(props) {
       {error && <Text className="text-red-500 mt-1">{error}</Text>}
     </View>
   )
+}
+
+InputWithLabel.propTypes = {
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChangeText: PropTypes.func.isRequired,
+  secureTextEntry: PropTypes.bool,
+  error: PropTypes.string,
+  style: PropTypes.object,
 }
 
 const styles = StyleSheet.create({

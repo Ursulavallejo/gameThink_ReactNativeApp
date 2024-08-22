@@ -27,6 +27,12 @@ npm install @react-navigation/stack
 npm install @react-navigation/bottom-tabs
 npm install @react-navigation/drawer
 
+As well as navigation Props>>>prop-types to define the type of the navigation prop that your component expects.
+
+npm install prop-types
+import PropTypes from 'prop-types';
+
+
  Install React Native Gesture Handler (if needed)>>>
 
  npm install react-native-gesture-handler
@@ -103,7 +109,26 @@ npm install --save-dev eslint@8 eslint-plugin-react eslint-plugin-react-native
 
 STEP 8 :  aSYNC STORAGE
 
+npm install @react-native-async-storage/async-storage
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+-Storing object value >>>>
+
+const storeData = async (value) => {
+  try {
+    const jsonValue = JSON.stringify(value);
+    await AsyncStorage.setItem('user-signup-data', jsonValue);
+  } catch (e) {
+    // saving error
+  }
+};
+
+-get data:
+
+  // Retrieve user data from AsyncStorage
+      const jsonValue = await AsyncStorage.getItem('user-signup-data')
+      const storedUserData = jsonValue != null ? JSON.parse(jsonValue) : null
 
 
 >>>>>>>>>>>>>>>>>>>> GIT  >> TO GO BACK IN CASE OF MISTAKES...
