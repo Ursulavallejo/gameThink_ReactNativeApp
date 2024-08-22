@@ -107,7 +107,7 @@ npm install --save-dev eslint@8 eslint-plugin-react eslint-plugin-react-native
 }
 
 
-STEP 8 :  aSYNC STORAGE
+STEP 9 :  aSYNC STORAGE
 
 npm install @react-native-async-storage/async-storage
 
@@ -129,6 +129,19 @@ const storeData = async (value) => {
   // Retrieve user data from AsyncStorage
       const jsonValue = await AsyncStorage.getItem('user-signup-data')
       const storedUserData = jsonValue != null ? JSON.parse(jsonValue) : null
+
+STEP 10 :  expo-image-picker  /// WAS not able to implemented it. Come back to this.
+
+npm install react-native-image-picker
+
+STEP: 11: Lottie / swiper (slideshow)
+
+npm install lottie-react-native react-native-swiper
+
+npm install react-native-snap-carousel
+
+
+
 
 
 >>>>>>>>>>>>>>>>>>>> GIT  >> TO GO BACK IN CASE OF MISTAKES...

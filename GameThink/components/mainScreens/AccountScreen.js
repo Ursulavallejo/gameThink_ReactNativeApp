@@ -9,6 +9,8 @@ import { logAllAsyncStorageData } from '../debug/debugScreen'
 
 export function AccountScreen() {
   const [userData, setUserData] = useState(null)
+  const [imageUri, setImageUri] = useState(null)
+  const [isPhotoPicked, setIsPhotoPicked] = useState(false)
   const navigation = useNavigation()
 
   const getData = async () => {
@@ -23,6 +25,10 @@ export function AccountScreen() {
     const fetchUserData = async () => {
       const data = await getData()
       setUserData(data)
+      if (data && data.profilePicture) {
+        setImageUri(data.profilePicture)
+        setIsPhotoPicked(true)
+      }
     }
     fetchUserData()
   }, [])
@@ -31,6 +37,17 @@ export function AccountScreen() {
   useEffect(() => {
     logAllAsyncStorageData()
   }, [])
+
+  const handleRandomImagePick = () => {
+    const newImageUri = 'https://unsplash.it/200/200'
+    setImageUri(newImageUri)
+    setIsPhotoPicked(true)
+
+    // Save the image URI to AsyncStorage
+    const updatedUserData = { ...userData, profilePicture: newImageUri }
+    setUserData(updatedUserData)
+    AsyncStorage.setItem('user-signup-data', JSON.stringify(updatedUserData))
+  }
 
   const handleAccountDeletion = () => {
     Alert.alert(
@@ -63,7 +80,7 @@ export function AccountScreen() {
   return (
     <View className="flex-1 items-center justify-center bg-purple-200 p-4">
       {/* <Text style={globalStyles.title}>User info from JSON/storage?</Text> */}
-      <View className="mb-6">
+      {/* <View className="mb-6">
         {userData && userData.profilePicture ? (
           <Image
             source={{ uri: userData.profilePicture }}
@@ -74,6 +91,29 @@ export function AccountScreen() {
           <View className="w-32 h-32 rounded-full border border-gray-300 justify-center items-center bg-gray-200">
             <MaterialIcons name="person" size={60} color="gray" />
           </View>
+        )}
+      </View> */}
+      <View className="mb-6">
+        {imageUri ? (
+          <Image
+            source={{ uri: imageUri }}
+            style={{
+              width: 200,
+              height: 200,
+              borderRadius: 100,
+              borderColor: 'gray',
+              borderWidth: 1,
+            }}
+            // className="w-32 h-32 rounded-full border border-gray-300"
+            resizeMode="cover"
+          />
+        ) : (
+          <View className="w-32 h-32 rounded-full border border-gray-300 justify-center items-center bg-gray-200">
+            <MaterialIcons name="person" size={60} color="gray" />
+          </View>
+        )}
+        {!isPhotoPicked && (
+          <Button title="Pick Random Photo" onPress={handleRandomImagePick} />
         )}
       </View>
 
