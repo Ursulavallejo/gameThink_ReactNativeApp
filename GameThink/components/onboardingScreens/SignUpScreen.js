@@ -46,12 +46,13 @@ export function SignUpScreen(props) {
       .required('Confirm password is required'),
   })
 
-  function onSubmit(values) {
+  function onSubmit(values, { resetForm }) {
     if (values.password !== values.confirmationPassword) {
       alert('Passwords do not match, please try again.')
     } else {
       storeData(values) // Store the data when the form is successfully submitted
       alert(`Signed up with email: ${values.email}`)
+      resetForm()
       props.navigation.navigate('SignIn')
     }
   }

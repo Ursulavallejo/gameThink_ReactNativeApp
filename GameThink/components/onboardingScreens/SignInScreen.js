@@ -31,7 +31,7 @@ export function SignInScreen(props) {
       .required('You must accept the terms and conditions'),
   })
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values, { resetForm }) => {
     try {
       // Retrieve user data from AsyncStorage
       const jsonValue = await AsyncStorage.getItem('user-signup-data')
@@ -43,6 +43,7 @@ export function SignInScreen(props) {
         storedUserData.password === values.password
       ) {
         alert(`Welcome, ${storedUserData.name}!`)
+        resetForm()
         props.navigation.navigate('Main')
       } else {
         alert('Invalid email or password. Please try again.')
