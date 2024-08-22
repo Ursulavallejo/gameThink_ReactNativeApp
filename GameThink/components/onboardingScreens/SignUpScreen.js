@@ -173,8 +173,15 @@ export function SignUpScreen(props) {
 }
 
 function InputWithLabel(props) {
-  const { label, placeholder, value, onChangeText, secureTextEntry, error } =
-    props
+  const {
+    label,
+    placeholder,
+    value,
+    onChangeText,
+    secureTextEntry,
+    error,
+    style,
+  } = props
 
   return (
     <View className="mb-4">
@@ -184,7 +191,7 @@ function InputWithLabel(props) {
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
-        className="border border-white rounded-lg px-4 py-2 text-lg"
+        className="border border-white rounded-lg px-4 py-2 text-lg text-white"
         placeholderTextColor="#aaa"
       />
       {error && <Text className="text-red-500 mt-1">{error}</Text>}

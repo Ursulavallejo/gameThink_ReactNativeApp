@@ -42,7 +42,7 @@ export function SignInScreen(props) {
         storedUserData.email === values.email &&
         storedUserData.password === values.password
       ) {
-        alert(`Welcome back, ${storedUserData.name}!`)
+        alert(`Welcome, ${storedUserData.name}!`)
         props.navigation.navigate('Main')
       } else {
         alert('Invalid email or password. Please try again.')
@@ -107,9 +107,10 @@ export function SignInScreen(props) {
                   </Text>
                   <TextInput
                     placeholder="Write your email here!"
+                    placeholderTextColor="#A0A0B4"
                     value={values.email}
                     onChangeText={handleChange('email')}
-                    className="border border-white rounded-lg px-4 py-2 text-lg"
+                    className="border border-white rounded-lg px-4 py-2 text-lg text-white"
                   />
                   {touched.email && errors.email && (
                     <Text className="text-red-500 mt-1">{errors.email}</Text>
@@ -122,10 +123,11 @@ export function SignInScreen(props) {
                   </Text>
                   <TextInput
                     placeholder="Write your password here"
+                    placeholderTextColor="#A0A0B4"
                     value={values.password}
                     onChangeText={handleChange('password')}
                     secureTextEntry
-                    className="border border-gray-300 rounded-lg px-4 py-2 text-lg"
+                    className="border border-gray-300 rounded-lg px-4 py-2 text-lg text-white"
                   />
                   {touched.password && errors.password && (
                     <Text className="text-red-500 mt-1">{errors.password}</Text>
