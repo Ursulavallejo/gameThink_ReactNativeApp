@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 import {
   View,
   Text,
@@ -7,7 +9,7 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   Platform,
-  TouchableOpacity,
+  // TouchableOpacity,
   Image,
   StyleSheet,
   StatusBar,
@@ -16,6 +18,17 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 
 export function SignUpScreen(props) {
+  const storeData = async (value) => {
+    try {
+      const jsonValue = JSON.stringify(value)
+      await AsyncStorage.setItem('user-signup-data', jsonValue)
+      alert('Data saved successfully!')
+    } catch (e) {
+      alert('Failed to save the data to the storage')
+      console.error(e)
+    }
+  }
+
   // Validation schema with Yup
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -37,8 +50,9 @@ export function SignUpScreen(props) {
     if (values.password !== values.confirmationPassword) {
       alert('Passwords do not match, please try again.')
     } else {
+      storeData(values) // Store the data when the form is successfully submitted
       alert(`Signed up with email: ${values.email}`)
-      // sign-up logic here
+      props.navigation.navigate('SignIn')
     }
   }
 

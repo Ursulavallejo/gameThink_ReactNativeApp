@@ -1,4 +1,4 @@
-import React from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import {
   View,
   Text,
@@ -31,9 +31,26 @@ export function SignInScreen(props) {
       .required('You must accept the terms and conditions'),
   })
 
-  function onSubmit(values) {
-    // sign-in logic here
-    alert(`Signed in with email: ${values.email}`)
+  const onSubmit = async (values) => {
+    try {
+      // Retrieve user data from AsyncStorage
+      const jsonValue = await AsyncStorage.getItem('user-signup-data')
+      const storedUserData = jsonValue != null ? JSON.parse(jsonValue) : null
+
+      if (
+        storedUserData &&
+        storedUserData.email === values.email &&
+        storedUserData.password === values.password
+      ) {
+        alert(`Welcome back, ${storedUserData.name}!`)
+        props.navigation.navigate('Main')
+      } else {
+        alert('Invalid email or password. Please try again.')
+      }
+    } catch (e) {
+      console.error('Failed to retrieve data from storage', e)
+      alert('An error occurred while trying to log in.')
+    }
   }
 
   return (
