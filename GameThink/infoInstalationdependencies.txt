@@ -66,11 +66,73 @@ npx tailwind init
 
    -npm install nativewind
 
-   STEP 5:  Splash
+STEP 5:  Splash
 
 npm install expo-splash-screen
 
 
-   STEP 6:  Expo-router
+STEP 7:  Expo-router
 
    npm install expo-router
+
+STEP 8:  ESLINT
+
+npm install --save-dev eslint@8 eslint-plugin-react eslint-plugin-react-native
+
+
+  ** ESLint-konfigurationsfil (.eslintrc.json i projektets rotmapp):
+   {
+  "env": {
+    "react-native/react-native": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-native"],
+  "root": true,
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
+}
+
+
+STEP 8 :  aSYNC STORAGE
+
+
+
+
+>>>>>>>>>>>>>>>>>>>> GIT  >> TO GO BACK IN CASE OF MISTAKES...
+
+To go back to the last commit was saved....
+
+1. Revert to the Last Commit
+This will undo all changes since your last commit, including any dependency installations or code changes.
+
+Open your terminal in the project directory and run:
+
+git reset --hard HEAD
+
+
+--hard: This option discards all changes in the working directory and the staging area, making your project exactly as it was at the last commit.
+
+2. Clean Up Untracked Files and Directories
+If you've installed new dependencies, there may be new files in your node_modules or other untracked files that weren't part of your last commit. To remove these:
+
+
+git clean -fd
+
+-f: Force the removal of untracked files.
+-d: Remove untracked directories as well.
+
+3. Install Dependencies Based on package-lock.json
+After reverting, you'll want to make sure you have the correct dependencies installed. Run:
+
+npm install
+
+
+This process will take your project back to the state it was in at the last commit, removing any changes or dependencies added after that point.
