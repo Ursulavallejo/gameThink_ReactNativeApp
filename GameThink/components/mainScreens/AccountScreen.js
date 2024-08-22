@@ -1,8 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useEffect, useState } from 'react'
-import { Text, View, Button, Alert } from 'react-native'
+import { Text, View, Button, Alert, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { globalStyles } from '../../styles/globalStyles'
+// import { globalStyles } from '../../styles/globalStyles'
+import { MaterialIcons } from 'react-native-vector-icons'
 
 import { logAllAsyncStorageData } from '../debug/debugScreen'
 
@@ -60,21 +61,41 @@ export function AccountScreen() {
   }
 
   return (
-    <View style={globalStyles.layout}>
-      <Text style={globalStyles.title}>User info from JSON/storage?</Text>
+    <View className="flex-1 items-center justify-center bg-purple-200 p-4">
+      {/* <Text style={globalStyles.title}>User info from JSON/storage?</Text> */}
+      <View className="mb-6">
+        {userData && userData.profilePicture ? (
+          <Image
+            source={{ uri: userData.profilePicture }}
+            className="w-62 h-62 rounded-full border border-gray-300"
+            resizeMode="cover"
+          />
+        ) : (
+          <View className="w-32 h-32 rounded-full border border-gray-300 justify-center items-center bg-gray-200">
+            <MaterialIcons name="person" size={60} color="gray" />
+          </View>
+        )}
+      </View>
 
-      <View>
+      <View className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
         {userData ? (
           <>
-            <Text>Name: {userData.name}</Text>
-            <Text>Email: {userData.email}</Text>
-            <Text>Birthday: {userData.birthday}</Text>
+            <Text className="text-xl font-bold mb-2">
+              Name: {userData.name}
+            </Text>
+            <Text className="text-lg mb-2">Email: {userData.email}</Text>
+            <Text className="text-lg mb-4">Birthday: {userData.birthday}</Text>
           </>
         ) : (
-          <Text>No user data found</Text>
+          <Text className="text-lg mb-4">No user data found</Text>
         )}
-        <Button title="Log Out" onPress={() => navigation.navigate('SignIn')} />
-        <Button title="Remove Account" onPress={handleAccountDeletion} />
+        <View className="flex-row justify-between mt-4">
+          <Button
+            title="Log Out"
+            onPress={() => navigation.navigate('SignIn')}
+          />
+          <Button title="Remove Account" onPress={handleAccountDeletion} />
+        </View>
       </View>
     </View>
   )
