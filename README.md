@@ -12,11 +12,16 @@ I designed and developed the entire **UI interface**, **logo**, and all screens 
 - 👤 **User Account Page**
 - 📝 **User Posts Page** where users can view and create posts
 
+
+https://github.com/user-attachments/assets/fccc4fb6-5fcf-4764-90ec-c19d9f862362
+
+
 ---
 
 ### General view:
 
 - Figma :
+  
   [<img src="documentation/Figma1.png" width="550"/>](Figma-Icon-splash)
 
   [<img src="documentation/Figma2.png" width="550"/>](Figma-overview)
