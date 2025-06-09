@@ -1,51 +1,37 @@
-# Node modules
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
 node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+.expo-backup/
+
+
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
 
 # macOS
 .DS_Store
+*.pem
 
-# Windows
-Thumbs.db
-desktop.ini
+# local env files
+.env*.local
 
-# Linux
-*.swp
-
-# Text editor or IDE settings
-.vscode/
-.idea/
-
-# Caches and build files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.cache/
-.babelrc/
-.expo/
-*.expo/
-.expo-shared/
-android/app/build/
-ios/build/
-
-# Environment-specific configuration files
-.env
-*.env
-
-# Platform-specific directories
-android/.gradle/
-android/.idea/
-android/local.properties
-android/app/src/main/assets/index.android.bundle
-android/app/src/main/res/drawable-mdpi/background_*
-ios/Pods/
-ios/*.xcworkspace
-ios/Podfile.lock
-ios/fastlane/report.xml
-ios/fastlane/Preview.html
-
-# Packaging files
-*.bundle
-*.map
-
-# Development state files
-*.log
+# typescript
+*.tsbuildinfo
