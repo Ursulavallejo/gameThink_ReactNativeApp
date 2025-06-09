@@ -51,14 +51,23 @@ The project uses the following React Native third-party libraries:
 ### 🛠️ Technologies Used
 
 - **React Native** — core framework for building native apps
-- **Expo** — framework and platform for universal React apps
-- **React Navigation** — routing and navigation
+- **Expo** (~53.0.0) - Development platform
+- **React Navigation** v7 - Navigation (stack + bottom tabs)
+- **NativeWind** - Tailwind CSS for React Native styling
+- **Formik + Yup** - Form handling and validation
+- **AsyncStorage** - Local data persistence
 - **Axios** — HTTP client for API requests
 - **Lottie React Native** — animations (splash screen and other UI effects)
 - **React Native Core Components & APIs** — used extensively across the app (View, Text, FlatList, Image, ScrollView, SafeAreaView, TextInput, Modal, etc.)
 - **ESLint** — code linting and quality assurance
 - **Prettier** — consistent code formatting
 - **Flexbox** — layout and responsive design
+
+---
+
+## Development Commands
+
+## npx expo start
 
 ---
 
@@ -73,3 +82,9 @@ It fulfills all requirements for **VG level**:
 ✅ React Navigation implemented
 ✅ ESLint and Prettier configuration included
 ✅ Project designed and implemented from scratch with original UI & branding
+
+---
+
+### 📄 [Detailed Information `](Detail_Info.md)
+
+---

@@ -134,11 +134,13 @@ STEP 10 :  expo-image-picker  /// WAS not able to implemented it. Come back to t
 
 npm install react-native-image-picker
 
-STEP: 11: Lottie / swiper (slideshow)
+STEP: 11: Lottie / slider
 
-npm install lottie-react-native react-native-swiper
+npm install lottie-react-native
 
-npm install react-native-snap-carousel
+npm install react-native-app-intro-slider
+
+
 
 
 

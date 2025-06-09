@@ -3,7 +3,7 @@
     "name": "GameThink",
     "slug": "GameThink",
     "version": "1.0.0",
-    "orientation": "auto",
+    "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {

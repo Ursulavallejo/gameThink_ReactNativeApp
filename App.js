@@ -1,4 +1,4 @@
-import { StyleSheet, StatusBar } from 'react-native'
+import { StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -6,20 +6,19 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import * as SplashScreen from 'expo-splash-screen'
 
 // --- Onboarding screens ---
-import { SignInScreen } from './components/onboardingScreens/SignInScreen'
-import { SignUpScreen } from './components/onboardingScreens/SignUpScreen'
+import { SignInScreen } from './ViewsScreens/onboardingScreens/SignInScreen.js'
+import { SignUpScreen } from './ViewsScreens/onboardingScreens/SignUpScreen.js'
 
 // --- Main screens ---
 
-import { HomeScreen } from './components/mainScreens/HomeScreen'
-import { FeedScreen } from './components/mainScreens/FeedScreen'
-import { CatalogScreen } from './components/mainScreens/CatalogScreen'
-import { AccountScreen } from './components/mainScreens/AccountScreen'
+import { HomeScreen } from './ViewsScreens/mainScreens/HomeScreen.js'
+import { FeedScreen } from './ViewsScreens/mainScreens/FeedScreen.js'
+import { CatalogScreen } from './ViewsScreens/mainScreens/CatalogScreen.js'
+import { AccountScreen } from './ViewsScreens/mainScreens/AccountScreen.js'
 
 // --- Icons ---
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-// import { SafeAreaView } from 'react-native-safe-area-context'
 
 // --- Navigation types ---
 const Stack = createStackNavigator()
@@ -91,18 +90,3 @@ export default function App() {
     </SafeAreaProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  layout: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-})
