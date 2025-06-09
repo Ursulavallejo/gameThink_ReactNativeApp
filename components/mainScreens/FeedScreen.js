@@ -33,7 +33,7 @@ export function FeedScreen() {
 
   useEffect(() => {
     fetch(
-      'https://raw.githubusercontent.com/Ursulavallejo/gameThink_ReactNativeApp/main/GameThink/data/users.json'
+      'https://raw.githubusercontent.com/Ursulavallejo/gameThink_ReactNativeApp/main/data/users.json'
     )
       .then((response) => response.json())
       .then((result) => {
@@ -43,7 +43,7 @@ export function FeedScreen() {
 
   useEffect(() => {
     fetch(
-      'https://raw.githubusercontent.com/Ursulavallejo/gameThink_ReactNativeApp/main/GameThink/data/posts.json'
+      'https://raw.githubusercontent.com/Ursulavallejo/gameThink_ReactNativeApp/main/data/posts.json'
     )
       .then((response) => response.json())
       .then((result) => {
